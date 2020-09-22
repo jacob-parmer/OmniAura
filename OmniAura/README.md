@@ -1,1 +1,1 @@
-#All the source code for the Omni Synth.
+# All the source code for the Omni Synth.
