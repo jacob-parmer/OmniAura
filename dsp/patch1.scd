@@ -56,6 +56,9 @@ MIDIdef.noteOff(\noteOffTest, {
 	~notes[nn] = nil;
 });
 
+/*
+Pitch wheel functionality
+*/
 MIDIdef.bend(\bendTest, {
 	arg val, chan;
 	[val, chan].postln;
