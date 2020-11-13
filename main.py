@@ -1,18 +1,20 @@
 """
-Main for OmniAura
-
+Main for OmniAura.
+author: Omar Barazanji
+date: 11/12/20
+Python 3.7
 """
 
 import numpy as np
 
-# Table that will be outputted to DAC & Mux
-cv_table = np.array([4][8])
 
 class Omni:
 
     def __init__(self):
-        pass
-
+        # Table that will be outputted to DAC & Mux
+        self.cv_table = [[0 for x in range(8)] for y in range(4)] 
+        
+        
     # update every 10ms
     def update_cv(self):
         # DAC & Mux update period is 10/32 ms
@@ -21,4 +23,4 @@ class Omni:
     
 
 if __name__ == "__main__":
-    pass
+    synth = Omni()
