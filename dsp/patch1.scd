@@ -14,8 +14,13 @@ nil.set(\freq, 880);
 MIDIClient.init;
 MIDIIn.connectAll;
 
+// settings up OSC
+b = NetAddr.new("127.0.0.1", 7771);
+NetAddr
+b.sendMsg("/hello", "there");
+
 // begin main
-( 
+(
 
 /*
 Synth function.
@@ -36,7 +41,7 @@ MIDIdef.noteOn(\noteOnTest, {
 	arg vel, nn, chan, src;
 	[vel, nn].postln;
 	~notes[nn] = Synth.new(
-		\tone, 
+		\tone,
 		[
 			\freq, nn.midicps,
 			\amp, vel.linexp(1,127,0.01,0.03),
