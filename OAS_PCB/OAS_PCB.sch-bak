@@ -1,0 +1,49 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L OAS_lib:AS3394 AS?
+U 1 1 5FC85A98
+P 4350 6000
+F 0 "AS?" H 4350 6875 50  0000 C CNN
+F 1 "AS3394" H 4350 6784 50  0000 C CNN
+F 2 "" H 4400 6200 50  0001 C CNN
+F 3 "" H 4400 6200 50  0001 C CNN
+	1    4350 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Analog_Switch:CD4051B U?
+U 1 1 5FC8B09F
+P 2350 6100
+F 0 "U?" H 2350 6981 50  0000 C CNN
+F 1 "CD4051B" H 2350 6890 50  0000 C CNN
+F 2 "" H 2500 5350 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/cd4052b.pdf" H 2330 6200 50  0001 C CNN
+	1    2350 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L OAS_lib:DAC8580IPW DAC?
+U 1 1 5FC8E69F
+P 1550 1500
+F 0 "DAC?" H 1550 2115 50  0000 C CNN
+F 1 "DAC8580IPW" H 1550 2024 50  0000 C CNN
+F 2 "" H 1550 1500 50  0001 C CNN
+F 3 "" H 1550 1500 50  0001 C CNN
+	1    1550 1500
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
