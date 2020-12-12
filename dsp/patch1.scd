@@ -14,11 +14,6 @@ nil.set(\freq, 880);
 MIDIClient.init;
 MIDIIn.connectAll;
 
-// settings up OSC
-b = NetAddr.new("127.0.0.1", 7771);
-NetAddr
-b.sendMsg("/hello", "there");
-
 // begin main
 (
 
