@@ -34,7 +34,7 @@ class OmniMidi:
                 self.midi_status = self.evnt[0]
                 self.idle = False
                 print(self.evnt)
-            except IndexError:
+            except IndexError:  # IndexError when idle.
                 self.idle = True
                 continue
 

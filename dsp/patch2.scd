@@ -1,14 +1,12 @@
 /*
-desc: Default patch inspired by Eli Fieldsteel's YT tutorial on Supercollider.
+desc: Patch inspired by Eli Fieldsteel's YT tutorial on Supercollider.
 author: Omar Barazanji
-date: 11/11/20
+date: 1/13/21
 */
 
 // Config and global variables
 s.boot;
-x = Synth.new(\tone, [\gate, 1]);
 y = Synth.new(\anotherOne, [\gate, 1]);
-x.set(\gate, 0);
 y.set(\gate, 0);
 ~bend = 8193;
 ~notes = Array.newClear(128);
@@ -22,16 +20,6 @@ MIDIIn.connectAll;
 /*
 Synth function.
 */
-SynthDef.new(\tone, {
-	arg freq=440, amp=0.3, gate=0, bend=0;
-	var sig, env;
-	sig = LFTri.ar(freq * bend.midiratio)!2; /* !1 mono, !2 stereo...*/
-	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
-	sig = sig * env * amp;
-	Out.ar(0, sig);
-}).add;
-
-
 SynthDef.new(\anotherOne, {
 	arg amp=0.3, gate=0, bend=0;
 	var freq, sig, env;
@@ -49,7 +37,7 @@ MIDIdef.noteOn(\noteOnTest, {
 	arg vel, nn, chan, src;
 	[vel, nn].postln;
 	~notes[nn] = Synth.new(
-		\tone,
+		\anotherOne,
 		[
 			\freq, nn.midicps,
 			\amp, vel.linexp(1,127,0.01,0.03),

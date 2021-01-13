@@ -4,13 +4,12 @@ Main / Top Level for the OmniAura Synthesizer.
 Author: Omar Barazanji
 Date: 11/12/20
 Python Version: 3.7
-
-
-
 """
 
 import numpy as np
 from pi.midi import OmniMidi
+from supercollider import Server, Synth
+
 
 class Omni():
 
@@ -29,6 +28,13 @@ class Omni():
         midi_stream = OmniMidi(debug=True) # change to False to turn off verbose
         midi_stream.input_stream()
 
+    # turns on / off synthDef's from SC
+    def synth_sel(self):
+        pass
+
 if __name__ == "__main__":
     synth = Omni() # initialize Omni class.
+    server = Server()
+    synth = Synth(server, "anotherOne")
     synth.open_stream()
+
