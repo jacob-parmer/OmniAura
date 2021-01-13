@@ -14,17 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L OAS_lib:AS3394 AS?
-U 1 1 5FC85A98
-P 4350 6000
-F 0 "AS?" H 4350 6875 50  0000 C CNN
-F 1 "AS3394" H 4350 6784 50  0000 C CNN
-F 2 "" H 4400 6200 50  0001 C CNN
-F 3 "" H 4400 6200 50  0001 C CNN
-	1    4350 6000
-	1    0    0    -1  
-$EndComp
-$Comp
 L Analog_Switch:CD4051B U?
 U 1 1 5FC8B09F
 P 2350 6100
@@ -36,7 +25,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/cd4052b.pdf" H 2330 6200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L OAS_lib:DAC8580IPW DAC?
+L OAS_PCB-rescue:DAC8580IPW-OAS_lib DAC?
 U 1 1 5FC8E69F
 P 1550 1500
 F 0 "DAC?" H 1550 2115 50  0000 C CNN
@@ -44,6 +33,49 @@ F 1 "DAC8580IPW" H 1550 2024 50  0000 C CNN
 F 2 "" H 1550 1500 50  0001 C CNN
 F 3 "" H 1550 1500 50  0001 C CNN
 	1    1550 1500
+	1    0    0    -1  
+$EndComp
+Text Label 2850 5900 0    50   ~ 0
+m0
+Text Label 2850 6000 0    50   ~ 0
+m1
+Text Label 2850 6100 0    50   ~ 0
+m2
+Text Label 2850 6200 0    50   ~ 0
+m3
+Text Label 2850 6300 0    50   ~ 0
+m4
+Text Label 2850 6400 0    50   ~ 0
+m5
+Text Label 2850 6500 0    50   ~ 0
+m6
+Text Label 2850 6600 0    50   ~ 0
+m7
+Text Label 5100 2500 2    50   ~ 0
+m0
+Text Label 5100 3100 2    50   ~ 0
+m1
+Text Label 5100 3250 2    50   ~ 0
+m2
+Text Label 5100 3400 2    50   ~ 0
+m3
+Text Label 6500 4000 0    50   ~ 0
+m4
+Text Label 6500 3700 0    50   ~ 0
+m5
+Text Label 6500 2950 0    50   ~ 0
+m6
+Text Label 6500 2650 0    50   ~ 0
+m7
+$Comp
+L OAS_PCB-rescue:AS3394-OAS_lib AS?
+U 1 1 5FC85A98
+P 5800 3000
+F 0 "AS?" H 5800 3875 50  0000 C CNN
+F 1 "AS3394" H 5800 3784 50  0000 C CNN
+F 2 "" H 5850 3200 50  0001 C CNN
+F 3 "" H 5850 3200 50  0001 C CNN
+	1    5800 3000
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
