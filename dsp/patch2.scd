@@ -1,6 +1,5 @@
 /*
-desc: Patch inspired by Eli Fieldsteel's YT tutorial on Supercollider.
-author: Omar Barazanji
+desc: Sounds like an outer-space boiling noise machine.
 date: 1/13/21
 */
 
@@ -21,12 +20,12 @@ MIDIIn.connectAll;
 Synth function.
 */
 SynthDef.new(\anotherOne, {
-	arg amp=0.3, gate=0, bend=0;
-	var freq, sig, env;
-	freq = LFNoise0.kr(8).exprange(200,1000);
-	amp = LFNoise1.kr(12).exprange(0.02,1);
+	arg freq, amp=0.3, gate=0, bend=0;
+	var freq_mod, sig, env;
+	freq_mod = LFNoise0.kr(freq).exprange(freq-200,freq+200);
+	amp = LFNoise1.kr(freq).exprange(0.01,0.03);
 	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
-	sig = SinOsc.ar(freq) * amp !2;
+	sig = LPF(SinOsc.ar(freq_mod)* amp , 500)!2;
 	Out.ar(0, sig);
 }).add;
 

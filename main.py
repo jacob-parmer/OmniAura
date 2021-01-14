@@ -33,8 +33,8 @@ class Omni():
         pass
 
 if __name__ == "__main__":
-    synth = Omni() # initialize Omni class.
+    OmniSynth = Omni() # initialize Omni class.
     server = Server()
     synth = Synth(server, "anotherOne")
-    synth.open_stream()
+   # OmniSynth.open_stream() 
 
