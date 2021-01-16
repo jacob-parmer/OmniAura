@@ -25,7 +25,7 @@ SynthDef.new(\anotherOne, {
 	freq_mod = LFNoise0.kr(freq).exprange(200,1000);
 	amp = LFNoise1.kr(freq).exprange(0.01,0.03);
 	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
-	sig = LPF.ar(HPF.ar(SinOsc.ar(freq_mod)* amp , 300), 600)!2;
+	sig = SinOsc.ar(freq_mod) * amp !2;
 	Out.ar(0, sig);
 }).add;
 
@@ -38,7 +38,7 @@ MIDIdef.noteOn(\noteOnTest, {
 	~notes[nn] = Synth.new(
 		\anotherOne,
 		[
-			\freq, (nn%64).midicps,
+			\freq, nn.midicps,
 			\amp, vel.linexp(1,127,0.01,0.03),
 			\gate, 1,
 			\bend, ~bend.linlin(0,16383,-2,2),

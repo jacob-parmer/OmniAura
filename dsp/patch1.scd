@@ -7,9 +7,7 @@ date: 11/11/20
 // Config and global variables
 s.boot;
 x = Synth.new(\tone, [\gate, 1]);
-y = Synth.new(\anotherOne, [\gate, 1]);
 x.set(\gate, 0);
-y.set(\gate, 0);
 ~bend = 8193;
 ~notes = Array.newClear(128);
 nil.set(\freq, 880);
@@ -32,16 +30,6 @@ SynthDef.new(\tone, {
 }).add;
 
 
-SynthDef.new(\anotherOne, {
-	arg amp=0.3, gate=0, bend=0;
-	var freq, sig, env;
-	freq = LFNoise0.kr(8).exprange(200,1000);
-	amp = LFNoise1.kr(12).exprange(0.02,1);
-	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
-	sig = SinOsc.ar(freq) * amp !2;
-	Out.ar(0, sig);
-}).add;
-
 /*
 Note on functionality
 */
@@ -57,7 +45,7 @@ MIDIdef.noteOn(\noteOnTest, {
 			\bend, ~bend.linlin(0,16383,-2,2),
 		]
 	);
-});
+}).add;
 
 /*
 Note off functionality
@@ -67,7 +55,7 @@ MIDIdef.noteOff(\noteOffTest, {
 	[vel, nn].postln;
 	~notes[nn].set(\gate, 0);
 	~notes[nn] = nil;
-});
+}).add;
 
 /*
 Pitch wheel functionality
@@ -77,7 +65,7 @@ MIDIdef.bend(\bendTest, {
 	[val, chan].postln;
 	~bend = val;
 	~notes.do{arg synth; synth.set(\bend, val.linlin(0,16383, -2, 2))};
-}, chan:0);
+}, chan:0).add;
 
 ) // end main
 
