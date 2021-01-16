@@ -8,7 +8,6 @@ Python Version: 3.7
 
 import numpy as np
 from pi.midi import OmniMidi
-from supercollider import Server, Synth
 
 
 class Omni():

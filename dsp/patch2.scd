@@ -22,10 +22,17 @@ Synth function.
 SynthDef.new(\anotherOne, {
 	arg freq, amp=0.3, gate=0, bend=0;
 	var freq_mod, sig, env;
+<<<<<<< HEAD
 	freq_mod = LFNoise0.kr(freq).exprange(200,1000);
 	amp = LFNoise1.kr(freq).exprange(0.01,0.03);
 	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
 	sig = LPF.ar(HPF.ar(SinOsc.ar(freq_mod)* amp , 300), 600)!2;
+=======
+	freq_mod = LFNoise0.kr(freq).exprange(freq-200,freq+200);
+	amp = LFNoise1.kr(freq).exprange(0.01,0.03);
+	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
+	sig = LPF(SinOsc.ar(freq_mod)* amp , 500)!2;
+>>>>>>> 2ff180002a327a47a30f30166b3d2299a9ceddca
 	Out.ar(0, sig);
 }).add;
 

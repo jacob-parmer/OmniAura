@@ -51,31 +51,31 @@ Text Label 2850 6500 0    50   ~ 0
 m6
 Text Label 2850 6600 0    50   ~ 0
 m7
-Text Label 5100 2500 2    50   ~ 0
+Text Label 5100 3000 2    50   ~ 0
 m0
-Text Label 5100 3100 2    50   ~ 0
+Text Label 5100 3600 2    50   ~ 0
 m1
-Text Label 5100 3250 2    50   ~ 0
+Text Label 5100 3750 2    50   ~ 0
 m2
-Text Label 5100 3400 2    50   ~ 0
+Text Label 5100 3900 2    50   ~ 0
 m3
-Text Label 6500 4000 0    50   ~ 0
+Text Label 6500 4500 0    50   ~ 0
 m4
-Text Label 6500 3700 0    50   ~ 0
+Text Label 6500 4200 0    50   ~ 0
 m5
-Text Label 6500 2950 0    50   ~ 0
+Text Label 6500 3450 0    50   ~ 0
 m6
-Text Label 6500 2650 0    50   ~ 0
+Text Label 6500 3150 0    50   ~ 0
 m7
 $Comp
 L OAS_PCB-rescue:AS3394-OAS_lib AS?
 U 1 1 5FC85A98
-P 5800 3000
-F 0 "AS?" H 5800 3875 50  0000 C CNN
-F 1 "AS3394" H 5800 3784 50  0000 C CNN
-F 2 "" H 5850 3200 50  0001 C CNN
-F 3 "" H 5850 3200 50  0001 C CNN
-	1    5800 3000
+P 5800 3500
+F 0 "AS?" H 5800 4375 50  0000 C CNN
+F 1 "AS3394" H 5800 4284 50  0000 C CNN
+F 2 "" H 5850 3700 50  0001 C CNN
+F 3 "" H 5850 3700 50  0001 C CNN
+	1    5800 3500
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
