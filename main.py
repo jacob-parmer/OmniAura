@@ -5,8 +5,10 @@ Author: Omar Barazanji
 Date: 11/12/20
 Python Version: 3.7
 """
-
+import argparse
 import numpy as np
+from pythonosc import dispatcher
+from pythonosc import osc_server
 from pi.midi import OmniMidi
 
 
@@ -33,6 +35,9 @@ class Omni():
 
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
-    server = Server()
-    OmniSynth.open_stream()
+    #OmniSynth.open_stream()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ip", default="127.0.0.1", help="the gordon to listen")
+    parser.add_argument("--port", type=int, default=7771)
 

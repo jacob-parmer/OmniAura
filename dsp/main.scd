@@ -13,6 +13,9 @@ nil.set(\freq, 880);
 MIDIClient.init;
 MIDIIn.connectAll;
 
+b = NetAddr.new("127.0.0.1", 7771);   
+b.sendMsg("/hello", "there");    
+
 // begin main
 (
 

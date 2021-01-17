@@ -1,11 +1,11 @@
 /*
-desc: Mellotron-like patch.
+desc:
 date: 1/16/21
 */
 
 // Config and global variables
 s.boot;
-y = Synth.new(\tone3, [\gate, 1]);
+y = Synth.new(\tone4, [\gate, 1]);
 y.set(\gate, 0);
 ~bend = 8193;
 ~notes = Array.newClear(128);
@@ -19,10 +19,10 @@ MIDIIn.connectAll;
 /*
 Synth function.
 */
-SynthDef.new(\tone3, {
+SynthDef.new(\tone4, {
 	arg freq=440, amp=0.3, gate=0, bend=0;
 	var sig, env;
-	sig = SinOscFB.ar(freq * bend.midiratio)!2; /* !1 mono, !2 stereo...*/
+	sig = Formant.ar(freq * bend.midiratio, 500,200)!2; /* !1 mono, !2 stereo...*/
 	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
 	sig = sig * env * amp;
 	Out.ar(0, sig);
@@ -35,7 +35,7 @@ MIDIdef.noteOn(\noteOnTest, {
 	arg vel, nn, chan, src;
 	[vel, nn].postln;
 	~notes[nn] = Synth.new(
-		\tone3,
+		\tone4,
 		[
 			\freq, nn.midicps,
 			\amp, vel.linexp(1,127,0.01,0.03),
