@@ -5,16 +5,22 @@ date: 1/16/21
 
 // Config and global variables
 s.boot;
-y = Synth.new(\tone3, [\gate, 1]);
-y.set(\gate, 0);
+x = Synth.new(\tone3, [\gate, 1]);
+x.set(\gate, 0);
 ~bend = 8193;
 ~notes = Array.newClear(128);
 nil.set(\freq, 880);
 MIDIClient.init;
 MIDIIn.connectAll;
 
+
 b = NetAddr.new("127.0.0.1", 7771);   
 b.sendMsg("/hello", "there");    
+o = OSCFunc({ 
+	arg msg, time, addr, recvPort;
+	[msg, time, addr, recvPort].postln; 
+	x.set(\freq,msg[1])
+}, '/goodbye', b);
 
 // begin main
 (
@@ -32,7 +38,7 @@ SynthDef.new(\tone3, {
 }).add;
 
 /*
-Note on functionality
+Note on function.
 */
 MIDIdef.noteOn(\noteOnTest, {
 	arg vel, nn, chan, src;
@@ -50,7 +56,7 @@ MIDIdef.noteOn(\noteOnTest, {
 });
 
 /*
-Note off functionality
+Note off function.
 */
 MIDIdef.noteOff(\noteOffTest, {
 	arg vel, nn;
@@ -60,7 +66,7 @@ MIDIdef.noteOff(\noteOffTest, {
 });
 
 /*
-Pitch wheel functionality
+Pitch wheel function.
 */
 MIDIdef.bend(\bendTest, {
 	arg val, chan;

@@ -1,16 +1,19 @@
 """
 Main / Top Level for the OmniAura Synthesizer.
 
-Author: Omar Barazanji
-Date: 11/12/20
-Python Version: 3.7
+author: Omar Barazanji
+date: 11/12/20
+
+Python 3.7.x
 """
-import argparse
+
 import numpy as np
-from pythonosc import dispatcher
-from pythonosc import osc_server
+
+# used for grabbing all midi data (in parallel with supercollider)
 from pi.midi import OmniMidi
 
+# Used for sending / receiving data from supercollider.
+from pi.osc import OmniCollider
 
 class Omni():
 
@@ -29,20 +32,14 @@ class Omni():
         midi_stream = OmniMidi(debug=True) # change to False to turn off verbose
         midi_stream.input_stream()
 
+    def close_stream(self):
+        OmniMidi.close_stream()
+
     # turns on / off synthDef's from SC
     def synth_sel(self):
         pass
 
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
-    #OmniSynth.open_stream()
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", default="127.0.0.1", help="the ip to listen on")
-    parser.add_argument("--port", type=int, default=7771, help="the ip to listen on")
-    args = parser.parse_args()
-    d = dispatcher.Dispatcher()
-    d.map("/noteOn", print)
-    server = osc_server.ThreadingOSCUDPServer(
-      (args.ip, args.port), d)
-    print("Serving on {}".format(server.server_address))
-    server.serve_forever()
+    sc = OmniCollider()
+    sc.transmit("\\tone3", 100)
