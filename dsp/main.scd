@@ -37,6 +37,7 @@ Note on functionality
 MIDIdef.noteOn(\noteOnTest, {
 	arg vel, nn, chan, src;
 	[vel, nn].postln;
+	b.sendMsg("/noteOn", nn);    
 	~notes[nn] = Synth.new(
 		\tone3,
 		[
