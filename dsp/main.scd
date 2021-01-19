@@ -5,9 +5,11 @@ date: 1/16/21
 
 // Config and global variables
 s.boot;
+
 ~bend = 8193;
 ~notes = Array.newClear(128);
 ~synth = "tone1";
+
 nil.set(\freq, 880);
 MIDIClient.init;
 MIDIIn.connectAll;
@@ -20,11 +22,16 @@ o = OSCFunc( {
 	| msg, time, addr, recvPort |
 	var control, x, argtest;
 	// argtest = msg[1].asFloat;
+
 	[msg, time, addr, recvPort].postln;
-	if (msg[2] == "synthSel", {"synthSel engaged".postln});
+
+	if (msg[1] == "synthSel".asSymbol,
+		{"synthSel engaged".postln},
+		{"expression was false".postln });
 
 	case
-		{msg[1] == "synthSel"} { ~synth = msg[2]; }
+		{msg[1] == "synthSel".asSymbol} { ~synth = msg[2].asString; }
+		{msg[1] == ""}
 		{true} {~synth = "tone1"};
 
 	(~synth + "loaded").postln;
