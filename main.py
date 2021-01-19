@@ -18,7 +18,7 @@ from pi.osc import OmniCollider
 class Omni():
 
     def __init__(self):
-
+        self.sc = OmniCollider()
         # Table that will be outputted to DAC & Mux
         self.cv_table = [[0 for x in range(8)] for y in range(4)] 
         
@@ -36,10 +36,10 @@ class Omni():
         OmniMidi.close_stream()
 
     # turns on / off synthDef's from SC
-    def synth_sel(self):
-        pass
+    def synth_sel(self, synth_name):
+        control = "synthSel"
+        self.sc.transmit(control, synth_name)
 
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
-    sc = OmniCollider()
-    sc.transmit("\\tone3", 100)
+    OmniSynth.synth_sel("tone2")
