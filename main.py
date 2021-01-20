@@ -35,11 +35,23 @@ class Omni():
     def close_stream(self):
         OmniMidi.close_stream()
 
+    # compiles all synthDef's in dsp folder.
+    def sc_compile(self):
+        command = "server"
+        control = "/d_loadDir"
+        dsp_dir = "patches"
+        self.sc.transmit(command, control, dsp_dir)
+
     # turns on / off synthDef's from SC
     def synth_sel(self, synth_name):
+        command = "/omni"
         control = "synthSel"
         self.sc.transmit(control, synth_name)
 
+    def filter_sel(self, filter_name):
+        pass
+
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
-    OmniSynth.synth_sel("tone2")
+    OmniSynth.sc_compile()
+    #OmniSynth.synth_sel("tone2")
