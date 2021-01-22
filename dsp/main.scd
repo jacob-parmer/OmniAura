@@ -53,7 +53,7 @@ o = OSCFunc( {
 /*
 Note on function.
 */
-MIDIdef.noteOn(\noteOnTest, {
+MIDIdef.noteOn(\noteOnDef, {
 	arg vel, nn, chan, src;
 	[vel, nn].postln;
 	n.sendMsg("/noteOn", nn);    
@@ -71,7 +71,7 @@ MIDIdef.noteOn(\noteOnTest, {
 /*
 Note off function.
 */
-MIDIdef.noteOff(\noteOffTest, {
+MIDIdef.noteOff(\noteOffDef, {
 	arg vel, nn;
 	[vel, nn].postln;
 	~notes[nn].set(\gate, 0);
@@ -81,7 +81,7 @@ MIDIdef.noteOff(\noteOffTest, {
 /*
 Pitch wheel function.
 */
-MIDIdef.bend(\bendTest, {
+MIDIdef.bend(\bendDef, {
 	arg val, chan;
 	[val, chan].postln;
 	~bend = val;
