@@ -46,12 +46,12 @@ class Omni():
     def synth_sel(self, synth_name):
         command = "/omni"
         control = "synthSel"
-        self.sc.transmit(control, synth_name)
+        self.sc.transmit(command, control, synth_name)
 
     def filter_sel(self, filter_name):
         pass
 
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
-    OmniSynth.sc_compile()
-    #OmniSynth.synth_sel("tone2")
+    # OmniSynth.sc_compile()
+    OmniSynth.synth_sel("tone1")

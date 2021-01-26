@@ -14,4 +14,4 @@ SynthDef.new("tone2", {
 	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
 	sig = LPF.ar(HPF.ar(SinOsc.ar(freq_mod)* amp , 300), 600)!2;
 	Out.ar(0, sig);
-}).add;
+}).store;

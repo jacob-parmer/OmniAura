@@ -13,4 +13,4 @@ SynthDef.new(\tone4, {
 	env = EnvGen.kr(Env.adsr, gate, doneAction:2);
 	sig = sig * env * amp;
 	Out.ar(0, sig);
-}).add;
+}).store;
