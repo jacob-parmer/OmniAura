@@ -1,0 +1,181 @@
+#:kivy 2.0.0
+<OmniGui>:
+    id: screenManager
+    Page1:
+        id: Page_1
+    Page2:
+        id: Page_2
+    Page3:
+        id: Page_3
+    Page4:
+        id: Page_4
+
+
+
+
+
+<Page1>:
+    name: 'Page1'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+        size_hint: 0.8, 1
+        padding: [0,0,0,30]
+        pos: 80, 0
+
+        Label:
+            text: 'Patch Selection\n       Page 1'
+            size_hint: 1, 0.1
+
+        Button: 
+            id: tone_1
+            text: 'tone1'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_2
+            text: 'tone2'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_3
+            text: 'tone3'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button:
+            id: goodbye
+            text: 'tone4'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+    Button:
+        text: '>'
+        size_hint: 0.08, 0.7
+        pos_hint: {'x':0.91, 'y':0.15}
+        on_release: root.screenSelect('Page2')
+
+<Page2>:
+    name: 'Page2'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+        size_hint: 0.8, 1
+        padding: [0,0,0,30]
+        pos: 80, 0
+
+        Label:
+            text: 'Patch Selection\n       Page 2'
+            size_hint: 1, 0.1
+
+        Button: 
+            id: tone_5
+            text: 'tone5'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_6
+            text: 'tone6'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_7
+            text: 'tone7'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button:
+            id: tone_8
+            text: 'tone8'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+    Button:
+        text: '>'
+        size_hint: 0.08, 0.7
+        pos_hint: {'x':0.91, 'y':0.15}
+        on_release: root.screenSelect('Page3')
+    Button:
+        text: '<'
+        size_hint: 0.08, 0.7
+        pos_hint: {'x':0.01, 'y':0.15}
+        on_release: root.screenSelect('Page1')
+<Page3>:
+    name: 'Page3'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+        size_hint: 0.8, 1
+        padding: [0,0,0,30]
+        pos: 80, 0
+
+        Label:
+            text: 'Patch Selection\n       Page 3'
+            size_hint: 1, 0.1
+
+        Button: 
+            id: tone_9
+            text: 'tone9'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_10
+            text: 'tone10'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_11
+            text: 'tone11'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button:
+            id: tone_12
+            text: 'tone12'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+    Button:
+        text: '>'
+        size_hint: 0.08, 0.7
+        pos_hint: {'x':0.91, 'y':0.15}
+        on_release: root.screenSelect('Page4')
+    Button:
+        text: '<'
+        size_hint: 0.08, 0.7
+        pos_hint: {'x':0.01, 'y':0.15}
+        on_release: root.screenSelect('Page2')
+
+<Page4>
+    name: 'Page4'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+        size_hint: 0.8, 1
+        padding: [0,0,0,30]
+        pos: 80, 0
+
+        Label:
+            text: 'Patch Selection\n       Page 4'
+            size_hint: 1, 0.1
+
+        Button: 
+            id: tone_13
+            text: 'tone13'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_14
+            text: 'tone14'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button: 
+            id: tone_15
+            text: 'tone15'
+            size_hint: 1, 0.25
+            on_release: root.toneSel(self.text)
+        Button:
+            id: goodbye
+            text: 'Goodbye!'
+            size_hint: 1, 0.25
+            on_release: exit()
+    Button:
+        text: '<'
+        size_hint: 0.08, 0.7
+        pos_hint: {'x':0.01, 'y':0.15}
+        on_release: root.screenSelect('Page3')
+
