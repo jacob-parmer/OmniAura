@@ -28,27 +28,40 @@ from kivy.core.window import Window
 Window.fullscreen = 'auto'
 Window.show_cursor = False
 
-
+# Creating the parent class for the screens and
+# defining the functions they will need to share
 class MyScreens(Screen):
-    def screenSelect(self, screenName):
+    def screenSel(self, screenName):
         sm.current = screenName
     def toneSel(self, tone):
         OmniSynth.synth_sel(tone)
 
-class Page1(MyScreens):
+class MainGUI(MyScreens):
     pass
-class Page2(MyScreens):
+class PatchPage1(MyScreens):
     pass
-class Page3(MyScreens):
+class PatchPage2(MyScreens):
     pass
-class Page4(MyScreens):
+class PatchPage3(MyScreens):
     pass
+class PatchPage4(MyScreens):
+    pass
+class LedPage1(MyScreens):
+    pass
+class LedPage2(MyScreens):
+    pass
+class LedPage3(MyScreens):
+    pass
+class LedPage4(MyScreens):
+    pass
+
 
 
 class OmniGui(ScreenManager):
     def __init__(self, **kwargs):
         super(OmniGui, self).__init__(**kwargs)
-        self.current = 'Page1'
+        #selecting the Main GUI screen for startup
+        self.current = 'MainGUI'
 
 
 
