@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name OAS_PCB-rescue)(type Legacy)(uri ${KIPRJMOD}/OAS_PCB-rescue.lib)(options "")(descr ""))
+  (lib (name teensy)(type Legacy)(uri ${KIPRJMOD}/teensy_library/teensy.lib)(options "")(descr ""))
 )

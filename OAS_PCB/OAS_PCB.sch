@@ -35,7 +35,7 @@ U 1 1 5FC85A98
 P 15950 13300
 F 0 "AS?" H 15950 14175 50  0000 C CNN
 F 1 "AS3394" H 15950 14084 50  0000 C CNN
-F 2 "" H 16000 13500 50  0001 C CNN
+F 2 "Package_SO:SOIC-24W_7.5x15.4mm_P1.27mm" H 16000 13500 50  0001 C CNN
 F 3 "" H 16000 13500 50  0001 C CNN
 	1    15950 13300
 	1    0    0    -1  
@@ -432,17 +432,6 @@ F 1 "CD4051B" H 12400 14215 50  0000 C CNN
 F 2 "" H 12550 12675 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/cd4052b.pdf" H 12380 13525 50  0001 C CNN
 	1    12400 13425
-	1    0    0    -1  
-$EndComp
-$Comp
-L Analog_Switch:CD4051B U?
-U 1 1 601D6AD7
-P 10500 9650
-F 0 "U?" H 10500 10531 50  0000 C CNN
-F 1 "CD4051B" H 10500 10440 50  0000 C CNN
-F 2 "" H 10650 8900 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4052b.pdf" H 10480 9750 50  0001 C CNN
-	1    10500 9650
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1117,4 +1106,52 @@ Text GLabel 14400 12950 0    50   Input ~ 0
 Wire Wire Line
 	14800 12950 14400 12950
 Connection ~ 14800 12950
+$Comp
+L Connector:AudioJack2_Ground J?
+U 1 1 602102C1
+P 20400 7450
+F 0 "J?" H 20220 7468 50  0000 R CNN
+F 1 "AudioJack2_Ground" H 20220 7377 50  0000 R CNN
+F 2 "" H 20400 7450 50  0001 C CNN
+F 3 "~" H 20400 7450 50  0001 C CNN
+	1    20400 7450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:AudioJack2_Ground J?
+U 1 1 602145F4
+P 20400 7950
+F 0 "J?" H 20220 7968 50  0000 R CNN
+F 1 "AudioJack2_Ground" H 20220 7877 50  0000 R CNN
+F 2 "" H 20400 7950 50  0001 C CNN
+F 3 "~" H 20400 7950 50  0001 C CNN
+	1    20400 7950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L teensy:Teensy4.0 U?
+U 1 1 601D3644
+P 10750 7600
+F 0 "U?" H 10750 9215 50  0000 C CNN
+F 1 "Teensy4.0" H 10750 9124 50  0000 C CNN
+F 2 "teensy:Teensy40" H 10350 7800 50  0001 C CNN
+F 3 "" H 10350 7800 50  0001 C CNN
+	1    10750 7600
+	1    0    0    -1  
+$EndComp
+Text Label 11850 8550 0    50   ~ 0
++5MCU
+$Comp
+L power:GND #PWR?
+U 1 1 601D6CDD
+P 12250 8650
+F 0 "#PWR?" H 12250 8400 50  0001 C CNN
+F 1 "GND" H 12255 8477 50  0000 C CNN
+F 2 "" H 12250 8650 50  0001 C CNN
+F 3 "" H 12250 8650 50  0001 C CNN
+	1    12250 8650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11850 8650 12250 8650
 $EndSCHEMATC
