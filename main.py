@@ -29,11 +29,11 @@ class Omni():
     
     # opens midi input stream
     def open_stream(self):
-        midi_stream = OmniMidi(debug=True) # change to False to turn off verbose
-        midi_stream.input_stream()
+        self.midi_stream = OmniMidi(debug=True) # change to False to turn off verbose
+        self.midi_stream.input_stream()
 
     def close_stream(self):
-        OmniMidi.close_stream()
+        self.midi_stream.stop_stream()
 
     # compiles all synthDef's in dsp folder.
     def sc_compile(self):
@@ -48,8 +48,10 @@ class Omni():
         control = "synthSel"
         self.sc.transmit(command, control, synth_name)
 
-    def filter_sel(self, filter_name):
-        pass
+    def filter_sel(self, filter_name, value):
+        command = "/omni"
+        control = "filterSel"
+        self.sc.transmit(command, control, filter_name, value)
 
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.

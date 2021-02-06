@@ -19,8 +19,6 @@ from pythonosc import udp_client
 from pythonosc import osc_bundle_builder
 from pythonosc import osc_message_builder
 
-from supercollider import Server, Synth
-
 class OmniCollider:
 
     def __init__(self):
