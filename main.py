@@ -50,6 +50,8 @@ class Omni():
 
     def filter_sel(self, filter_name):
         pass
+    
+    
 
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
