@@ -24,21 +24,18 @@ MIDIClient.init;
 MIDIIn.connectAll;
 
 // Connection to OSC
-n = NetAddr.new("127.0.0.1", 7771);   
+n = NetAddr.new("127.0.0.1", 7771);
 
 // begin main
 (
 
 /* OSCFunc called when Python sends "/omni" a message.
- * This function will control the OmniSynth created in Python. 
+ * This function will control the OmniSynth created in Python.
  */
-o = OSCFunc( { 
+o = OSCFunc( {
 
 	// arguments to OSCFunc
 	| msg, time, addr, recvPort |
-
-	var control, x, argtest;
-	// argtest = msg[1].asFloat;
 
 	// post all messages to terminal window
 	[msg, time, addr, recvPort].postln;
@@ -47,9 +44,10 @@ o = OSCFunc( {
 
 		{msg[1] == "synthSel".asSymbol} {
 			~synth = msg[2].asString;
+	        ~synth.postln;
 		}
 
-		{msg[1] == "filterSel".asSymbol} { 
+		{msg[1] == "filterSel".asSymbol} {
 			if (msg[2] == "lpf".asSymbol) {
 				~lpf = 1;
 				~lpf_cutoff = msg[3].asFloat;
@@ -73,7 +71,7 @@ Note on function.
 MIDIdef.noteOn(\noteOnDef, {
 	arg vel, nn, chan, src;
 	[vel, nn].postln;
-	n.sendMsg("/noteOn", nn);    
+	n.sendMsg("/noteOn", nn);
 	~notes[nn] = Synth.new(
 		~synth,
 		[

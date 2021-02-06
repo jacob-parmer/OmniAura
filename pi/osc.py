@@ -36,7 +36,7 @@ class OmniCollider:
         print("Serving on {}".format(server.server_address))
         server.serve_forever()
 
-    def transmit(self, command, control, value):
+    def transmit(self, command, control, *args):
         port = 57120
         if (command == "server"): ip = 57110
         tx = argparse.ArgumentParser()
@@ -47,9 +47,12 @@ class OmniCollider:
 
         if command == "server":
             print("compiling")
-            client.send_message(control, value)
+            client.send_message(control, args[0])
         else:
-            client.send_message(command, [control, value])
+            control_block = [control]
+            for x in args:
+                control_block.append(x)
+            client.send_message(command, control_block)
 
 if __name__ == "__main__":
     sc = OmniCollider()

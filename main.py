@@ -56,4 +56,5 @@ class Omni():
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
     # OmniSynth.sc_compile()
-    OmniSynth.synth_sel("tone1")
+    # OmniSynth.synth_sel("tone1")
+    OmniSynth.filter_sel("lpf", 600)
