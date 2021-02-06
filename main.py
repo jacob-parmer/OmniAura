@@ -53,6 +53,7 @@ class Omni():
         control = "filterSel"
         self.sc.transmit(command, control, filter_name, value)
 
+
 if __name__ == "__main__":
     OmniSynth = Omni() # initialize Omni class.
     # OmniSynth.sc_compile()
