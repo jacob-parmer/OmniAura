@@ -12,9 +12,9 @@ s.boot;
 // Default patch
 ~synth = "tone1";
 ~lpf = 0;
-~lpf_cutoff = 2000;
+~lpf_cutoff = 1000;
 ~hpf = 0;
-~hpf_cutoff = 500;
+~hpf_cutoff = 1000;
 
 // Set freq to standard Hz
 nil.set(\freq, 880);
@@ -49,12 +49,20 @@ o = OSCFunc( {
 
 		{msg[1] == "filterSel".asSymbol} {
 			if (msg[2] == "lpf".asSymbol) {
-				~lpf = 1;
-				~lpf_cutoff = msg[3].asFloat;
+				if (msg[3].asString == "off") {
+					~lpf = 0;
+				}{
+					~lpf = 1;
+					~lpf_cutoff = msg[3].asFloat;
+			    };
 			};
 			if (msg[2] == "hpf".asSymbol) {
-				~hpf = 1;
-				~hpf_cutoff = msg[3].asFloat;
+				if (msg[3].asString == "off") {
+					~hpf = 0;
+				}{
+					~hpf = 1;
+					~hpf_cutoff = msg[3].asFloat;
+				};
 			};
 		}
 
