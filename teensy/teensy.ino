@@ -2,10 +2,21 @@
 #include "src/config.h"
 //#include "src/midi.h"
 
+//Config conf;
+const char* filename = "/README.txt";
+
 void setup() {
 	delay(3000); // safety check while powering up
-	Config conf = get_configuration("config.json");
+
+  Serial.begin(9600);
+  Serial.println("Begin!");
   pinMode(LED_BUILTIN, OUTPUT);
+  FileSystem fs;
+  int err = fs.mount();
+  //Serial.println(err);
+	//conf = get_configuration(filename);
+
+  digitalWrite(LED_BUILTIN, HIGH);
 }
 
 void loop() {
@@ -18,8 +29,9 @@ void loop() {
    * displayLEDs();
    * 
    */
+  //Serial.println(conf.LED_PIN);
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
+  delay(1000);
   digitalWrite(LED_BUILTIN, LOW);
-  delay(500);
+  delay(1000);
 }
