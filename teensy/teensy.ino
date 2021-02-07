@@ -2,10 +2,15 @@
 #include "src/config.h"
 //#include "src/midi.h"
 
+Config cfg;
+
 void setup() {
 	delay(3000); // safety check while powering up
-	Config conf = get_configuration("config.json");
   pinMode(LED_BUILTIN, OUTPUT);
+  cfg = load_configuration();
+  Serial.println(cfg.LED_PIN);
+  Serial.println(cfg.LED_TYPE);
+  
 }
 
 void loop() {
